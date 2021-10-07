@@ -1,0 +1,29 @@
+header {
+    display: flex;
+    justify-content: center;
+    height: 4.375rem;
+    background-image: linear-gradient(to top, #2f3545, #1d212c);
+    box-shadow: 0 5px 25px 0 rgb(226 0 116 / 50%);
+    position: sticky;
+}
+.header-wrapper {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+}
+.float-left {
+    display: flex;
+    gap: 2rem;
+}
+ul.nav-menu {
+    display: flex;
+}
+.float-right {
+    display: flex;
+}
+
+
+.logo{
+    width: 15%;
+    cursor: pointer;
+}
