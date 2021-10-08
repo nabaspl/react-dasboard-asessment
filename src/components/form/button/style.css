@@ -6,4 +6,12 @@ button{
     padding: 10px;
     font-family: Helvetica;
     font-weight: bold;
+    font-size: 0.875;
+}
+button:hover {
+    background-color: #e20074;
+    color: #fff;
+}
+.img-button{
+    cursor: pointer;
 }

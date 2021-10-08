@@ -1,0 +1,46 @@
+.sidebar-top-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    width: 100%;
+}
+.sidebar-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul.safe-types {
+    font-family: Roboto;
+    font-size: 1.188rem;
+    font-weight: bold;
+    width: 30%;
+}
+span.safe-count {
+    font-family: HelveticaNeue;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #5e627c;
+}
+
+.list-empty-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.list-empty-div > span{
+    position: absolute;
+    bottom: 5%;
+    font-family: Helvetica;
+    font-size: 0.875rem;
+}
+
+.with-list{
+    height: 100%;
+    justify-content: space-between;
+    width: 100%;
+}

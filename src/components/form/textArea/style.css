@@ -1,0 +1,18 @@
+textarea {
+    background-color: #fff;
+}
+.form-group > p.info {
+    font-family: Helvetica;
+    color: #8b8ea6;
+    font-size: 0.8125rem;
+    padding: 10px 0;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+label.label {
+    padding: 10px 0;
+    font-size: 0.813rem;
+    font-family: Helvetica;
+}

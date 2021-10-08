@@ -10,3 +10,10 @@ return <button  type={props.type}
                     {props.children}
                 </button>;
 }
+
+export function ImageBtn(props){
+    return <img src={props.src} 
+                id={props.id} 
+                onClick={props.onClickHandler} 
+                className='img-button'/>;
+}

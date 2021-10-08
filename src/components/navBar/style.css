@@ -6,6 +6,8 @@ ul.nav-menu >li {
     height: 100%;
     justify-content: center;
     align-items: center;
+    font-size: 0.813rem;
+    font-family: Helvetica;
 }
 ul.nav-menu >li:hover {
     background-image: linear-gradient(0deg, rgb(114, 19, 75), rgb(29, 33, 44));;
