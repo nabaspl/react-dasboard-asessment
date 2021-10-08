@@ -34,3 +34,17 @@ p.create-safe-desc {
     line-height: 1.3;
     color: #c4c4c4;
 }
+.cancel-btn{
+    cursor: pointer;
+    color: #e20074;
+    background-color: white;
+    border: none;
+    padding: 10px;
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 0.875rem;
+}
+.cancel-btn:hover{
+    background-color: #e20074;
+    color: white;
+}
