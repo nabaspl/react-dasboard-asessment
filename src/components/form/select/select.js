@@ -1,14 +1,19 @@
 import React from "react";
 import './style.css';
-export default function Select(props){
 
-return <select  type={props.type}
-                name={props.name} 
+const Select = (props) => (
+    <div className="form-group">
+      {props.label && <label className="label" htmlFor="input-field">{props.label}</label>}
+      <select  name={props.name} 
                 id={props.id} 
-                onChange={props.onClickChange} 
+                value={props.value}
+                onChange={props.onChange} 
                 className={props.classLists}>
                     {props.options.map((item,i) => (
                             <option key={i} value={item.value}>{item.text}</option>
                     ))}
-                </select>;
-}
+      </select>
+    </div>
+  );
+  
+  export default Select;

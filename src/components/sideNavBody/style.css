@@ -1,0 +1,6 @@
+.side-nav-body {
+    height: calc(100% - 3rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -6,7 +6,9 @@ import MainContents from '../../components/mainContent/mainContent';
 class Azure extends React.Component {
     render() { 
         return  <MainWrapper>
-                    <SideNav></SideNav>
+                    <SideNav>
+                        this side nav  one
+                    </SideNav>
                     <MainContents></MainContents>
                 </MainWrapper>;
     }
