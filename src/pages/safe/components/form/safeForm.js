@@ -5,17 +5,25 @@ import Select from "../../../../components/form/select/select";
 import TextArea from "../../../../components/form/textArea/textArea";
 import SafeIcon from'../../../../assets/images/safeIcon.svg'
 import './style.css'
+
+import {useSelector} from 'react-redux'
+
 export default function SafeForm(props){
-    const initialValues = {
-        safeName: "",
-        ownerName: "",
-        safeType: "personal",
-        safeDescription: ""
+    
+    
+    let initialValues = {
+        safeId: props.CurrentValue.safeId,
+        safeName: props.CurrentValue.safeName,
+        ownerName: props.CurrentValue.ownerName,
+        safeType: props.CurrentValue.safeType,
+        safeDescription: props.CurrentValue.safeDescription
       };
+
+    const [values, setValues] = useState(props.CurrentValue);
       
     const options = [{value:'personal', text:'Personal' },{value:'public', text:'Public' }];
-
-    const [values, setValues] = useState(initialValues);
+    
+    const editIndex = useSelector((state) => state.SafeReducer.editSafes)
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -25,7 +33,15 @@ export default function SafeForm(props){
         });
     };
 
-return <form onSubmit={props.handleOnSubmit}>
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.handleOnSubmit(values);
+      };
+
+      
+
+return <form onSubmit={handleSubmit}>
+        <Input type="hidden" name="safeId" id="safeId" value={values.safeId||0} onChange={handleInputChange}/>
         <div className="form-header">
             <h1  className="h1">Create Safe</h1>
             <div className="safe-details-group">
@@ -34,24 +50,21 @@ return <form onSubmit={props.handleOnSubmit}>
             </div>
         </div>
         
-        <Input type="text" id="safeName" name="safeName" value={values.safeName} onChange={handleInputChange} label="Safe Name"/>
+        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name"/>
         
-        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName} onChange={handleInputChange} label="Owner Name"/>
+        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name"/>
         
-        <Select id="safeType" name="safeType" options={options}  value={values.safeType} onChange={handleInputChange} label="Type"/>
+        <Select id="safeType" name="safeType" options={options}  value={values.safeType||''} onChange={handleInputChange} label="Type"/>
         
         <TextArea 
         type="text" id="safeDescription" name="safeDescription" 
-        value={values.safeDescription} rows="5" onChange={handleInputChange} 
+        value={values.safeDescription||''} rows="5" onChange={handleInputChange} 
         label="Description" info="Please add a minimum of 10 characters"/>
         
         <div className="button-group">
-            <Button>Cancel</Button>
-            <Button>+ Create</Button>
+            <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>
+            {editIndex?<Button>+ Update</Button>:<Button>+ Create</Button>}
         </div>
 
     </form>;
-}
-function handleOnChange(){
-
 }

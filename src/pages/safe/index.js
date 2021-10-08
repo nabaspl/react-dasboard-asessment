@@ -7,9 +7,6 @@ import SideNavBody from '../../components/sideNavBody/sideNavBody';
 import './style.css';
 import {SideNavTopContent,SideNavBodyContent} from './components/sideNavContents/sideNavContent'
 
-import {useSelector} from 'react-redux'
-
-
 function Safe(){
 
     
@@ -22,7 +19,7 @@ function Safe(){
                         </SideNavTop>
                             
                         <SideNavBody>
-                            <SideNavBodyContent itemLists={items}/>
+                            <SideNavBodyContent/>
                         </SideNavBody>
         
                     </SideNav>

@@ -9,8 +9,8 @@ const TextArea = (props) => (
                  id={props.id} 
                  onChange={props.onChange} 
                  className={props.classLists}
-                 rows={props.rows}>
-                    {props.children}
+                 rows={props.rows}
+                 value={props.value}>
        </textarea>
        <p className="info">{props.info}</p>
     </div>
