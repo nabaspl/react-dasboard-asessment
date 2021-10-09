@@ -11,17 +11,18 @@ import Modal from "../../../../components/modal/modal";
 import SafeForm from "../form/safeForm";
 
 import store from "../../../../redux/store";
-import { safeCreate, safeEdit } from "../../../../redux/safe/actions";
+import { safeCreate, safeEdit,safeDeleted,createSecret } from "../../../../redux/safe/actions";
 import { useSelector } from "react-redux";
 
 import "./style.css";
 
 export function SideNavTopContent(props) {
+    let items = useSelector((state) => state.SafeReducer.safes);
   return (
     <div className="sidebar-top-wrapper">
       <ul className="safe-types">
         <li>
-          All Safe <span className="safe-count">({props.safesCount})</span>
+          All Safe <span className="safe-count">({items.length})</span>
         </li>
       </ul>
       <IconInput icon={searchIcon} />
@@ -41,27 +42,35 @@ export function SideNavBodyContent(props) {
   const handleSubmit = (data) => {
     store.dispatch(safeCreate(data));
     store.dispatch(safeEdit(0));
+    
     setModalShow(false);
   };
 
   const handleEdit = (safeId) => {
     store.dispatch(safeEdit(safeId));
+    let secretData= {safeId:1,secret:"test"};
+    console.log(secretData);
+    store.dispatch(createSecret(secretData));
     setModalShow(true);
   };
-
+  const handleDelete = (safeId) => {
+    store.dispatch(safeDeleted(safeId));
+  };
+  
   let curretFormData = {};
   let items = useSelector((state) => state.SafeReducer.safes);
   const editIndex = useSelector((state) => state.SafeReducer.editSafes);
   const editSafeData = useSelector((state) => state.SafeReducer.editSafeData);
   if (editIndex) curretFormData = editSafeData[0];
 
-  if (items)
+  if (items && items.length)
     return (
       <div className="sidebar-body-wrapper with-list">
         <ItemsList
           items={items}
           itemIcon={safeIcon}
           handelOnEdit={handleEdit}
+          handelOnDelete={handleDelete}
         />
         <ImageBtn src={PlusBtnImg} onClickHandler={openModal} />
         {modalShow && (

@@ -1,0 +1,22 @@
+.main-header {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+.panel {
+    display: grid;
+    grid-template-rows: 1fr 6fr;
+    padding: 0 1rem;
+}
+.panel-head {
+    border-bottom: 1px solid #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner-safe-info {
+    position: absolute;
+    right: 0;
+    bottom: 2rem;
+    width: 70%;
+}

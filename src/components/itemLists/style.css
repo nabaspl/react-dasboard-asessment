@@ -11,9 +11,9 @@
     background-image: linear-gradient(to right, #72134b, #1d212c);
 }
 .item-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr 2fr;
     align-items: center;
-    gap: 10px;
 }
 .about-item {
     display: flex;
@@ -27,4 +27,12 @@ span.safe-name {
 span.safe-last-updated-info {
     font-family: Roboto;
     font-size: 0.813rem;
+}
+span.action-icon-container {
+    padding: .8rem;
+    border-radius: 50%;
+}
+.action-icon-container:hover {
+    background: rgba(90, 99, 122, 0.2);
+    cursor: pointer;
 }
