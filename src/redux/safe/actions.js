@@ -6,10 +6,10 @@ export function safeCreate(inputs){
         payload:inputs
     }
 }
-export function safeDeleted(index){
+export function safeDeleted(id){
     return{
         type:actions.SAFE_DELETED,
-        payload:index
+        payload:id
     }
 }
 
@@ -20,9 +20,9 @@ export function safeEdit(index){
     }
 }
 
-export function createSecret(secret){
+export function createSecret(data){
     return{
         type:actions.CREATE_SECRET,
-        payload:secret
+        payload:data
     }
 }
