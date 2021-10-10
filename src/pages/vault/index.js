@@ -10,11 +10,15 @@ function Vault(){
     }
     let query = useQuery();
     let pageName=query.get("name");
+    let age=query.get("age");
+    let address=query.get("address");
     
         return  <MainWrapper>
                     <SideNav></SideNav>
                     <MainContents>
                         <h1>{pageName}</h1>
+                        {age}
+                        {address}
                     </MainContents>
                 </MainWrapper>;
     

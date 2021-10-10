@@ -13,7 +13,7 @@ const Input = (props) => (
        onChange={props.onChange} 
        className={props.classLists} 
        placeholder={props.placeHolder}
-      />
+       required/>
     </div>
   );
   
