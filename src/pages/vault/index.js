@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import MainWrapper from '../../components/main/wrapper/mainWrapper';
 import SideNav from '../../components/sideNav/sideNav';
 import MainContents from '../../components/mainContent/mainContent';
+import {useLocation} from "react-router-dom";
 
-class Vault extends React.Component {
-    render() { 
+function Vault(){
+    const useQuery =()=> {
+        return new URLSearchParams(useLocation().search);
+    }
+    let query = useQuery();
+    let pageName=query.get("name");
+    
         return  <MainWrapper>
                     <SideNav></SideNav>
-                    <MainContents></MainContents>
+                    <MainContents>
+                        <h1>{pageName}</h1>
+                    </MainContents>
                 </MainWrapper>;
-    }
+    
 }
  
 export default Vault;
