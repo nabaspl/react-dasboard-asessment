@@ -8,18 +8,22 @@ import './style.css';
 import {SideNavTopContent,SideNavBodyContent} from './components/sideNavContents/sideNavContent'
 import {MainContentHead,MainContentBody} from './components/mainContent/mainContent'
 
+import { useSelector } from "react-redux";
 function Safe(){
-
-    let safe={
-        safeName:'sample/sample',
-        safeDescription:'A Safe is a logical unit to store the secrets. All the safes are created within Vault. You can control access only at the safe level. As a vault administrator you can manage safes but cannot view the content of the safe.'
+    const safes = useSelector((state) => state.SafeReducer.safes);
+    const activeSafeId = useSelector((state) => state.SafeReducer.activeSafe);
+    let secrets,currentSafe,safe;
+    if(activeSafeId){
+        currentSafe = safes.filter((safe) => safe.safeId == activeSafeId);
+        safe=currentSafe.length?currentSafe[0]:[];
+        secrets =safe?safe.secrets:[];
     }
-
+    
         
         return  <MainWrapper>
                     <SideNav>
                         <SideNavTop>
-                            <SideNavTopContent safesCount={0}/>
+                            <SideNavTopContent safesCount={safes.lenght}/>
                         </SideNavTop>
                             
                         <SideNavBody>
@@ -29,7 +33,7 @@ function Safe(){
                     </SideNav>
                     <MainContents>
                        <MainContentHead safe={safe}/>
-                       <MainContentBody/>
+                       <MainContentBody safe={safe} secrets={secrets}/>
                     </MainContents>
                     
                 </MainWrapper>;

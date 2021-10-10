@@ -14,4 +14,5 @@ button:hover {
 }
 .img-button{
     cursor: pointer;
+    width: 30%;
 }
