@@ -25,7 +25,7 @@ function App() {
         <Switch>
           <Route
             exact
-            path="/"
+            path="/react-dasboard-asessment/"
             render={() => {
               return <Redirect to="/safe" />;
             }}
