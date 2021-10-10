@@ -30,7 +30,7 @@ function App() {
               return <Redirect to="/safe" />;
             }}
           />
-          <Route path="/safe" component={Safe} />
+          <Route path="/safe"  component={Safe} />
           <Route path="/vault" component={Vault} />
           <Route path="/service" component={ServiceAccount} />
           <Route path="/iam" component={IamService} />

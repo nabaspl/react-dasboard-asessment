@@ -60,9 +60,9 @@ return <div className="list-group">
                                         <span className="safe-name">{item}</span>
                                     </div>
                                     <div className="actions">
-                                        <span className="action-icon-container">
+                                        {/* <span className="action-icon-container">
                                             <img src={iconDelete} onClick={()=>handleDelete(i)}/>
-                                        </span>                                       
+                                        </span>                                        */}
                                     </div>
                                 </div>
                             </li>

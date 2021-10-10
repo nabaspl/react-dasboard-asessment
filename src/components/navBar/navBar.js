@@ -5,7 +5,7 @@ export default function NavBar(props){
     
     return <ul className="nav-menu">
                 {props.menuItems.map((menu,i)=> (
-                     <li key={i}><Link to={`${menu.route}?name=${menu.menuName}`}>{menu.menuName}</Link></li>
+                     <li key={i}><Link to={`${menu.route}?name=${menu.menuName}&age=10`}>{menu.menuName}</Link></li>
                 ))}
             </ul>;
 }
