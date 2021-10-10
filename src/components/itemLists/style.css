@@ -2,6 +2,10 @@
     align-self: flex-start;
     width: 100%;
     font-family: Roboto;
+    overflow-y: scroll;
+}
+.list-group::-webkit-scrollbar {
+    display: none;
 }
 .list-ul > li{
     padding: 1rem;
@@ -35,4 +39,7 @@ span.action-icon-container {
 .action-icon-container:hover {
     background: rgba(90, 99, 122, 0.2);
     cursor: pointer;
+}
+.list-ul>li.active{
+    background-image: linear-gradient(to right, #72134b, #1d212c);
 }

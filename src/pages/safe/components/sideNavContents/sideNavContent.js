@@ -11,12 +11,24 @@ import Modal from "../../../../components/modal/modal";
 import SafeForm from "../form/safeForm";
 
 import store from "../../../../redux/store";
-import { safeCreate, safeEdit,safeDeleted,createSecret } from "../../../../redux/safe/actions";
+import { safeCreate, safeEdit,safeDeleted,setActiveSafe,filterSafe} from "../../../../redux/safe/actions";
 import { useSelector } from "react-redux";
+
+import { debounce, throttle } from 'lodash';
+
+
 
 import "./style.css";
 
 export function SideNavTopContent(props) {
+  const onChangeHandler = (e) =>{
+    delayedHandleChange(e.target.value);
+  }
+
+  const delayedHandleChange = debounce(eventData => store.dispatch(filterSafe(eventData)), 500);
+
+
+
     let items = useSelector((state) => state.SafeReducer.safes);
   return (
     <div className="sidebar-top-wrapper">
@@ -25,12 +37,13 @@ export function SideNavTopContent(props) {
           All Safe <span className="safe-count">({items.length})</span>
         </li>
       </ul>
-      <IconInput icon={searchIcon} />
+      <IconInput icon={searchIcon} onChange={onChangeHandler}/>
     </div>
   );
 }
 export function SideNavBodyContent(props) {
   const [modalShow, setModalShow] = useState(false);
+ 
 
   const openModal = () => {
     setModalShow(true);
@@ -48,17 +61,25 @@ export function SideNavBodyContent(props) {
 
   const handleEdit = (safeId) => {
     store.dispatch(safeEdit(safeId));
-    let secretData= {safeId:1,secret:"test"};
-    console.log(secretData);
-    store.dispatch(createSecret(secretData));
+    
     setModalShow(true);
   };
   const handleDelete = (safeId) => {
+    
     store.dispatch(safeDeleted(safeId));
+    
+  };
+  const handleLiClick = (safeId) => {
+    store.dispatch(setActiveSafe(safeId));
   };
   
   let curretFormData = {};
   let items = useSelector((state) => state.SafeReducer.safes);
+  let filter = useSelector((state) => state.SafeReducer.filter);
+
+  if(filter)
+    items = items.filter((item, index) => item.safeName.toUpperCase().indexOf(filter.toUpperCase()) > -1);
+
   const editIndex = useSelector((state) => state.SafeReducer.editSafes);
   const editSafeData = useSelector((state) => state.SafeReducer.editSafeData);
   if (editIndex) curretFormData = editSafeData[0];
@@ -71,6 +92,7 @@ export function SideNavBodyContent(props) {
           itemIcon={safeIcon}
           handelOnEdit={handleEdit}
           handelOnDelete={handleDelete}
+          LiClickHandler={handleLiClick}
         />
         <ImageBtn src={PlusBtnImg} onClickHandler={openModal} />
         {modalShow && (

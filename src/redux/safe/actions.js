@@ -12,6 +12,12 @@ export function safeDeleted(id){
         payload:id
     }
 }
+export function setActiveSafe(id){
+    return{
+        type:actions.SET_ACTIVE_SAFE,
+        payload:id
+    }
+}
 
 export function safeEdit(index){
     return{
@@ -23,6 +29,19 @@ export function safeEdit(index){
 export function createSecret(data){
     return{
         type:actions.CREATE_SECRET,
+        payload:data
+    }
+}
+export function filterSafe(key){
+    return{
+        type:actions.FILTER_SAFE,
+        payload:key
+    }
+}
+
+export function deleteSecret(data){
+    return{
+        type:actions.SAFE_DELETED,
         payload:data
     }
 }
