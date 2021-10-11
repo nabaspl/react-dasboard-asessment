@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-dasboard-asessment/static/css/main.2dc9bf75.chunk.css",
-    "main.js": "/react-dasboard-asessment/static/js/main.4c35c643.chunk.js",
-    "main.js.map": "/react-dasboard-asessment/static/js/main.4c35c643.chunk.js.map",
+    "main.js": "/react-dasboard-asessment/static/js/main.f6cd8087.chunk.js",
+    "main.js.map": "/react-dasboard-asessment/static/js/main.f6cd8087.chunk.js.map",
     "runtime-main.js": "/react-dasboard-asessment/static/js/runtime-main.1dc87b9d.js",
     "runtime-main.js.map": "/react-dasboard-asessment/static/js/runtime-main.1dc87b9d.js.map",
     "static/js/2.eefb6912.chunk.js": "/react-dasboard-asessment/static/js/2.eefb6912.chunk.js",
@@ -28,6 +28,6 @@
     "static/js/runtime-main.1dc87b9d.js",
     "static/js/2.eefb6912.chunk.js",
     "static/css/main.2dc9bf75.chunk.css",
-    "static/js/main.4c35c643.chunk.js"
+    "static/js/main.f6cd8087.chunk.js"
   ]
 }
