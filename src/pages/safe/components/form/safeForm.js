@@ -20,6 +20,7 @@ export default function SafeForm(props){
       };
 
     const [values, setValues] = useState(props.CurrentValue);
+    const [error, setError] = useState(props.CurrentValue);
       
     const options = [{value:'personal', text:'Personal' },{value:'public', text:'Public' }];
     
@@ -31,7 +32,55 @@ export default function SafeForm(props){
         ...values,
         [name]: value,
         });
+        validateForm(name, value);
+        console.log(error);
     };
+    const validateForm = (name,value) =>{
+
+        switch(name){
+            case "safeName":
+                if(!value){
+                    setError({
+                        ...error,
+                        [name]: "safe name is required",
+                        });
+                }else{
+                    setError({
+                        ...error,
+                        [name]: false,
+                        });
+                }
+            break;
+            case "ownerName":
+                if(!value){
+                    setError({
+                        ...error,
+                        [name]: "owner is required",
+                        });
+                }else{
+                    setError({
+                        ...error,
+                        [name]: false,
+                        });
+                }
+            break;
+            case "safeDescription":
+                if(value.length<9){
+                    setError({
+                        ...error,
+                        [name]: "safe Description minimum length 10",
+                        });
+                }else{
+                    setError({
+                        ...error,
+                        [name]: false,
+                        });
+                }
+            break;
+           
+        }
+
+    }
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -50,16 +99,16 @@ return <form onSubmit={handleSubmit}>
             </div>
         </div>
         
-        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name"/>
+        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name" error={error.safeName}/>
         
-        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name"/>
+        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name" error={error.ownerName}/>
         
-        <Select id="safeType" name="safeType" options={options}  value={values.safeType||''} onChange={handleInputChange} label="Type"/>
+        <Select id="safeType" name="safeType" options={options}  value={values.safeType||''} onChange={handleInputChange} label="Type" error={error.safeType}/>
         
         <TextArea 
         type="text" id="safeDescription" name="safeDescription" 
         value={values.safeDescription||''} rows="5" onChange={handleInputChange} 
-        label="Description" info="Please add a minimum of 10 characters"/>
+        label="Description" info="Please add a minimum of 10 characters" error={error.safeDescription}/>
         
         <div className="button-group">
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>

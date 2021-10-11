@@ -13,6 +13,7 @@ const Select = (props) => (
                             <option key={i} value={item.value}>{item.text}</option>
                     ))}
       </select>
+      {props.error && <span className="error">{props.error}</span>}
     </div>
   );
   

@@ -14,6 +14,7 @@ const Input = (props) => (
        className={props.classLists} 
        placeholder={props.placeHolder}
        required/>
+       {props.error && <span className="error">{props.error}</span>}
     </div>
   );
   
