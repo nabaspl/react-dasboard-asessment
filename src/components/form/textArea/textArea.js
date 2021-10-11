@@ -11,7 +11,7 @@ const TextArea = (props) => (
                  className={props.classLists}
                  rows={props.rows}
                  value={props.value}
-                 minlength="10">
+                 required>
        </textarea>
        <p className="info">{props.info}</p>
     </div>
