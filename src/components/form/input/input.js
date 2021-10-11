@@ -3,6 +3,7 @@ import './style.css';
 
 
 const Input = (props) => (
+    
     <div className="form-group">
       {props.label && <label className="label" htmlFor="input-field">{props.label}</label>}
       <input
@@ -13,7 +14,8 @@ const Input = (props) => (
        onChange={props.onChange} 
        className={props.classLists} 
        placeholder={props.placeHolder}
-       required/>
+       className={props.error && 'error'}
+       required />
        {props.error && <span className="error">{props.error}</span>}
     </div>
   );
