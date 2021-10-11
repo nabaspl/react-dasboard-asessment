@@ -13,6 +13,7 @@ const TextArea = (props) => (
                  value={props.value}
                  required>
        </textarea>
+       {props.error && <span className="error">{props.error}</span>}
        <p className="info">{props.info}</p>
     </div>
   );
