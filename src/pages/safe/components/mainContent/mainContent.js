@@ -62,7 +62,7 @@ export function MainContentBody(props) {
         }
          
       </div>
-      {modalShow && (<Modal><SecretForm safeId={props.safe.safeId} secret=""  handleOnSubmit={handleSubmit}/></Modal>)}
+      {modalShow && (<Modal><SecretForm safeId={props.safe.safeId} secret=""  handleOnSubmit={handleSubmit} CloseModal={handleCloseModal}/></Modal>)}
     </div>
   );
 }
