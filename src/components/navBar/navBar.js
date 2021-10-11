@@ -1,11 +1,14 @@
 import React from "react";
 import './style.css'
-import {Link } from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 export default function NavBar(props){
-    
+    const location = useLocation();
+    console.log(location.pathname);
     return <ul className="nav-menu">
                 {props.menuItems.map((menu,i)=> (
-                     <li key={i}><Link to={`${menu.route}?name=${menu.menuName}&age=10`}>{menu.menuName}</Link></li>
+                     <li key={i} className={location.pathname == menu.route ?"active":""}>
+                         <Link to={`${menu.route}?name=${menu.menuName}&age=10`}>{menu.menuName}</Link>
+                    </li>
                 ))}
             </ul>;
 }
