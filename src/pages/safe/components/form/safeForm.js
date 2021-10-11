@@ -44,16 +44,19 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: "safe name is required",
+                        isError:true
                         });
                 }else if(!editIndex && safes.filter((safe, index) => safe.safeName == value).length){
                     setError({
                         ...error,
                         [name]: "safe name is already exist",
+                        isError:true
                         });
                 }else{
                     setError({
                         ...error,
                         [name]: false,
+                        isError:false
                         });
                 }
             break;
@@ -62,11 +65,13 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: "owner is required",
+                        isError:true
                         });
                 }else{
                     setError({
                         ...error,
                         [name]: false,
+                        isError:false
                         });
                 }
             break;
@@ -75,11 +80,13 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: "safe Description minimum length 10",
+                        isError:true
                         });
                 }else{
                     setError({
                         ...error,
                         [name]: false,
+                        isError:false
                         });
                 }
             break;
@@ -90,7 +97,8 @@ export default function SafeForm(props){
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.handleOnSubmit(values);
+        if(!error.isError)
+            props.handleOnSubmit(values);
       };
 
       
