@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-dasboard-asessment/static/css/main.2ae8130c.chunk.css",
-    "main.js": "/react-dasboard-asessment/static/js/main.7b0fdf6a.chunk.js",
-    "main.js.map": "/react-dasboard-asessment/static/js/main.7b0fdf6a.chunk.js.map",
+    "main.css": "/react-dasboard-asessment/static/css/main.f3da4540.chunk.css",
+    "main.js": "/react-dasboard-asessment/static/js/main.f6c37315.chunk.js",
+    "main.js.map": "/react-dasboard-asessment/static/js/main.f6c37315.chunk.js.map",
     "runtime-main.js": "/react-dasboard-asessment/static/js/runtime-main.1dc87b9d.js",
     "runtime-main.js.map": "/react-dasboard-asessment/static/js/runtime-main.1dc87b9d.js.map",
-    "static/js/2.9709f4f6.chunk.js": "/react-dasboard-asessment/static/js/2.9709f4f6.chunk.js",
-    "static/js/2.9709f4f6.chunk.js.map": "/react-dasboard-asessment/static/js/2.9709f4f6.chunk.js.map",
+    "static/js/2.84f09c95.chunk.js": "/react-dasboard-asessment/static/js/2.84f09c95.chunk.js",
+    "static/js/2.84f09c95.chunk.js.map": "/react-dasboard-asessment/static/js/2.84f09c95.chunk.js.map",
     "static/js/3.cb699025.chunk.js": "/react-dasboard-asessment/static/js/3.cb699025.chunk.js",
     "static/js/3.cb699025.chunk.js.map": "/react-dasboard-asessment/static/js/3.cb699025.chunk.js.map",
     "index.html": "/react-dasboard-asessment/index.html",
-    "static/css/main.2ae8130c.chunk.css.map": "/react-dasboard-asessment/static/css/main.2ae8130c.chunk.css.map",
-    "static/js/2.9709f4f6.chunk.js.LICENSE.txt": "/react-dasboard-asessment/static/js/2.9709f4f6.chunk.js.LICENSE.txt",
+    "static/css/main.f3da4540.chunk.css.map": "/react-dasboard-asessment/static/css/main.f3da4540.chunk.css.map",
+    "static/js/2.84f09c95.chunk.js.LICENSE.txt": "/react-dasboard-asessment/static/js/2.84f09c95.chunk.js.LICENSE.txt",
     "static/media/addFolderIcon.38580348.svg": "/react-dasboard-asessment/static/media/addFolderIcon.38580348.svg",
     "static/media/bannerImage.9f99e499.svg": "/react-dasboard-asessment/static/media/bannerImage.9f99e499.svg",
     "static/media/computerImage.9e39c7aa.svg": "/react-dasboard-asessment/static/media/computerImage.9e39c7aa.svg",
@@ -26,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.1dc87b9d.js",
-    "static/js/2.9709f4f6.chunk.js",
-    "static/css/main.2ae8130c.chunk.css",
-    "static/js/main.7b0fdf6a.chunk.js"
+    "static/js/2.84f09c95.chunk.js",
+    "static/css/main.f3da4540.chunk.css",
+    "static/js/main.f6c37315.chunk.js"
   ]
 }
