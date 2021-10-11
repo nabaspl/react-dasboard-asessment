@@ -21,3 +21,6 @@ label.label {
 span.error {
     color: red;
 }
+select.error{
+    border: 3px solid #f44336;
+}

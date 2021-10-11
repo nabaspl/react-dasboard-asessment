@@ -8,7 +8,8 @@ const Select = (props) => (
                 id={props.id} 
                 value={props.value}
                 onChange={props.onChange} 
-                className={props.classLists}>
+                className={props.classLists}
+                className={props.error && 'error'}>
                     {props.options.map((item,i) => (
                             <option key={i} value={item.value}>{item.text}</option>
                     ))}

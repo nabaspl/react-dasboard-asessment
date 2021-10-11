@@ -11,6 +11,7 @@ const TextArea = (props) => (
                  className={props.classLists}
                  rows={props.rows}
                  value={props.value}
+                 className={props.error && 'error'}
                  required>
        </textarea>
        {props.error && <span className="error">{props.error}</span>}
