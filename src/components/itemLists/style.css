@@ -44,3 +44,7 @@ span.action-icon-container {
 .list-ul>li.active{
     background-image: linear-gradient(to right, #72134b, #1d212c);
 }
+.actions {
+    justify-content: flex-end;
+    display: flex;
+}

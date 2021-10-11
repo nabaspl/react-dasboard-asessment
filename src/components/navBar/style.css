@@ -16,3 +16,6 @@ ul.nav-menu>li>a {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
+ul.nav-menu >li.active {
+    background-image: linear-gradient(0deg, rgb(114, 19, 75), rgb(29, 33, 44));;
+}
