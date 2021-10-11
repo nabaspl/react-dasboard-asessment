@@ -20,11 +20,12 @@ export default function SafeForm(props){
       };
 
     const [values, setValues] = useState(props.CurrentValue);
-    const [error, setError] = useState(props.CurrentValue);
+    const [error, setError] = useState({});
       
     const options = [{value:'personal', text:'Personal' },{value:'public', text:'Public' }];
     
     const editIndex = useSelector((state) => state.SafeReducer.editSafes)
+    const safes = useSelector((state) => state.SafeReducer.safes);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -43,6 +44,11 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: "safe name is required",
+                        });
+                }else if(!editIndex && safes.filter((safe, index) => safe.safeName == value).length){
+                    setError({
+                        ...error,
+                        [name]: "safe name is already exist",
                         });
                 }else{
                     setError({
