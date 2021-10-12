@@ -33,8 +33,7 @@ export default function SafeForm(props){
         ...values,
         [name]: value,
         });
-        validateForm(name, value);
-        console.log(error);
+        
     };
     const validateForm = (name,value) =>{
 
@@ -86,7 +85,7 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: false,
-                        isError:false
+                        isError:true
                         });
                 }
             break;
@@ -97,6 +96,11 @@ export default function SafeForm(props){
 
     const handleSubmit = e => {
         e.preventDefault();
+        for (const [key, value] of Object.entries(values)) {
+            validateForm(key, value);
+            console.log(key,"---",value,"===",error);
+          }
+    
         if(!error.isError)
             props.handleOnSubmit(values);
       };
@@ -117,7 +121,7 @@ return <form onSubmit={handleSubmit}>
         
         <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name" error={error.ownerName} placeHolder="Owner Name"/>
         
-        <Select id="safeType" name="safeType" options={options}  value={values.safeType||''} onChange={handleInputChange} label="Type" error={error.safeType}/>
+        <Select id="safeType" name="safeType" options={options}  value={values.safeType||'personal'} onChange={handleInputChange} label="Type" error={error.safeType}/>
         
         <TextArea 
         type="text" id="safeDescription" name="safeDescription" 
