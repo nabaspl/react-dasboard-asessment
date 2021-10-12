@@ -1,7 +1,6 @@
 form {
     display: flex;
     flex-direction: column;
-    padding: .5rem;
 }
 
 .button-group {
@@ -39,7 +38,7 @@ p.create-safe-desc {
     color: #e20074;
     background-color: white;
     border: none;
-    padding: 10px;
+    padding: 0.625rem 1.5rem;
     font-family: Helvetica;
     font-weight: bold;
     font-size: 0.875rem;
@@ -47,4 +46,8 @@ p.create-safe-desc {
 .cancel-btn:hover{
     background-color: #e20074;
     color: white;
+}
+.form-name{
+    font-family: Roboto;
+    font-size: 1.5rem;
 }

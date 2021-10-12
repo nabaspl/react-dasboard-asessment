@@ -1,12 +1,13 @@
 .input-group {
     display: flex;
-    width: 70%;
     background-color: #20232e;
-    padding: 1px;
-
+    margin: 0.5rem .58rem;
+    padding: 0.625rem 0.938rem;
+    width: 17.375rem;
 }
 .icon-input{
     background-color: #20232e;
     border: none;
     color: #fff;
+    
 }
