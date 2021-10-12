@@ -1,6 +1,7 @@
 .sidebar-top-wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .sidebar-body-wrapper {
     display: flex;

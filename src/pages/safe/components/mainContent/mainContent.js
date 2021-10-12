@@ -57,7 +57,7 @@ export function MainContentBody(props) {
             You do not have acess to this Safe and cannot view it’s contents
           </p>
         </div>
-        <Button onClickHandler={handleClick} >+ ADD</Button>
+        <Button onClickHandler={handleClick} classLists="add-btn">+ ADD</Button>
         </div>
         }
          

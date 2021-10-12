@@ -5,6 +5,7 @@ header {
     box-shadow: 0 5px 25px 0 rgb(226 0 116 / 50%);
     position: sticky;
     padding: 0 10.875rem;
+    height: 4.375rem;
 }
 .float-left {
     display: flex;

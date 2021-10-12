@@ -37,71 +37,87 @@ export default function SafeForm(props){
     };
     const validateForm = (name,value) =>{
 
-        switch(name){
-            case "safeName":
+        
+            if("safeName" == name){
                 if(!value){
                     setError({
                         ...error,
                         [name]: "safe name is required",
                         isError:true
                         });
+                    return false;
                 }else if(!editIndex && safes.filter((safe, index) => safe.safeName == value).length){
                     setError({
                         ...error,
                         [name]: "safe name is already exist",
                         isError:true
                         });
+                    return false;
                 }else{
                     setError({
                         ...error,
                         [name]: false,
                         isError:false
                         });
+                    return true;
                 }
-            break;
-            case "ownerName":
+            }
+            if("ownerName"==name){
                 if(!value){
                     setError({
                         ...error,
                         [name]: "owner is required",
                         isError:true
                         });
+                        return false;
                 }else{
                     setError({
                         ...error,
                         [name]: false,
                         isError:false
                         });
+                        return true;
                 }
-            break;
-            case "safeDescription":
+            }
+            if("safeDescription"==name){
                 if(value.length<9){
                     setError({
                         ...error,
                         [name]: "safe Description minimum length 10",
                         isError:true
                         });
+                        return false;
                 }else{
                     setError({
                         ...error,
                         [name]: false,
                         isError:true
                         });
+                        return true;
                 }
-            break;
-           
-        }
+            }
+
+            return true;
+        
 
     }
+    function processValidation() {
+        let e;
+        for (const [key, value] of Object.entries(values)) {
+            e = validateForm(key, value);
+            if(!e){
+                return e;
+            }
+        }
+        return true;
+        
+    }
+
+    
 
     const handleSubmit = e => {
         e.preventDefault();
-        for (const [key, value] of Object.entries(values)) {
-            validateForm(key, value);
-            console.log(key,"---",value,"===",error);
-          }
-    
-        if(!error.isError)
+        if(processValidation())
             props.handleOnSubmit(values);
       };
 
