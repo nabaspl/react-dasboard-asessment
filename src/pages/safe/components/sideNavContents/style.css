@@ -1,9 +1,6 @@
 .sidebar-top-wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    width: 100%;
 }
 .sidebar-body-wrapper {
     display: flex;
@@ -17,7 +14,7 @@ ul.safe-types {
     font-family: Roboto;
     font-size: 1.188rem;
     font-weight: bold;
-    width: 30%;
+    padding: 1.188rem 1.688rem;
 }
 span.safe-count {
     font-family: HelveticaNeue;

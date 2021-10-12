@@ -1,8 +1,3 @@
 .side-nav-top {
-    height: 3.5rem;
     border-bottom: 1px solid #2a2e3e;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
 }

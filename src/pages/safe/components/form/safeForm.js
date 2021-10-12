@@ -113,16 +113,16 @@ return <form onSubmit={handleSubmit}>
             </div>
         </div>
         
-        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name" error={error.safeName}/>
+        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name" error={error.safeName} placeHolder="Safe Name"/>
         
-        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name" error={error.ownerName}/>
+        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name" error={error.ownerName} placeHolder="Owner Name"/>
         
         <Select id="safeType" name="safeType" options={options}  value={values.safeType||''} onChange={handleInputChange} label="Type" error={error.safeType}/>
         
         <TextArea 
         type="text" id="safeDescription" name="safeDescription" 
         value={values.safeDescription||''} rows="5" onChange={handleInputChange} 
-        label="Description" info="Please add a minimum of 10 characters" error={error.safeDescription}/>
+        label="Description" info="Please add a minimum of 10 characters" error={error.safeDescription} />
         
         <div className="button-group">
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>

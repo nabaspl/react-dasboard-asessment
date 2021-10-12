@@ -31,8 +31,9 @@ export default function SecretForm(props){
       
 
 return <form onSubmit={handleSubmit}>
+        <h1 className="form-name">Add Folder</h1>
         <Input type="hidden" name="safeId" id="safeId" value={values.safeId||0} onChange={handleInputChange}/>
-        <Input type="text" id="secret" name="secret" value={values.secret||''} onChange={handleInputChange} label="Secret"/>
+        <Input type="text" id="secret" name="secret" value={values.secret||''} onChange={handleInputChange} label="Folder Name" placeHolder="enter foldername"/>
         <div className="button-group">
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>
             <Button>+ Create</Button>

@@ -1,27 +1,21 @@
 .main-header {
     position: relative;
-    height: 35%;
 }
 .main-header>img{
+    margin-top: -0.5rem;
     width: 100%;
-    margin-top: -1%;
 }
-.panel {
-    height: 65%;
-    padding: 1rem;
-}
+
 .panel-head {
     border-bottom: 1px solid #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
 }
 .panel-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 90%;
    
 }
 .banner-safe-info {
@@ -50,6 +44,7 @@ padding: 3rem;
 
 .panel-head > span{
     cursor: pointer;
+    padding: 1.125rem;
 }
 .banner-safe-info>h1 {
     font-size: 1.5rem;
@@ -61,4 +56,10 @@ padding: 3rem;
     font-family: Helvetica;
     font-size: 0.875rem;
     color: #c4c4c4;
+}
+p.about-sec {
+    font-family: Helvetica;
+    font-size: 0.875rem;
+    color: #c4c4c4;
+    padding: 1rem;
 }
