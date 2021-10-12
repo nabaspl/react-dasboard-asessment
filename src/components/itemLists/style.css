@@ -46,5 +46,29 @@ span.action-icon-container {
 }
 .actions {
     justify-content: flex-end;
+    display: none;
+}
+.active>.item-wrapper>.actions {
     display: flex;
+}
+.safe-lists{
+    height: calc(100vh - 13.65rem );
+    overflow-y: scroll;
+}
+.safe-lists::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: .2rem;
+	background-color: #F5F5F5;
+}
+.safe-lists::-webkit-scrollbar
+{
+	width: .2rem;
+	background-color: #F5F5F5;
+}
+.safe-lists::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
 }

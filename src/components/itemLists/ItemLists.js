@@ -19,7 +19,7 @@ export default function ItemsList(props){
       let active='';
 return <div className="list-group">
      
-      <ul id={props.id}  className="list-ul">
+      <ul id={props.id}  className="list-ul safe-lists">
                     {props.items.map((item,i) => (
                             <li key={i} className={`${selected==item.safeId?'active':''}`} onClick={()=>liClicked(item.safeId)}>
                                 <div className="item-wrapper">
