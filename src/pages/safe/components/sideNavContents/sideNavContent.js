@@ -14,7 +14,7 @@ import store from "../../../../redux/store";
 import { safeCreate, safeEdit,safeDeleted,setActiveSafe,filterSafe} from "../../../../redux/safe/actions";
 import { useSelector } from "react-redux";
 
-import { debounce, throttle } from 'lodash';
+import { debounce } from 'lodash';
 
 
 
@@ -37,7 +37,7 @@ export function SideNavTopContent(props) {
           All Safe <span className="safe-count">({items.length})</span>
         </li>
       </ul>
-      <IconInput icon={searchIcon} onChange={onChangeHandler}/>
+      <IconInput icon={searchIcon} onChange={onChangeHandler} placeHolder="search"/>
     </div>
   );
 }
