@@ -9,7 +9,7 @@ select {
     flex-direction: column;
 }
 label.label {
-    padding: 10px 0;
+    padding: .5rem 0;
     font-size: 0.813rem;
     font-family: Helvetica;
 }
