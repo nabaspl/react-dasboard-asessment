@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { useState,useEffect } from "react";
 import IconInput from "../../../../components/iconInput/iconInput";
 import searchIcon from "../../../../assets/images/searchIcon.svg";
 import PlusBtnImg from "../../../../assets/images/plusBtnImage.svg";
@@ -44,8 +44,9 @@ export function SideNavTopContent(props) {
 }
 export function SideNavBodyContent(props) {
   const [modalShow, setModalShow] = useState(false);
- 
+  const activeSafeId = useSelector((state) => state.SafeReducer.activeSafe);
 
+  
   const openModal = () => {
     setModalShow(true);
   };
@@ -94,6 +95,7 @@ export function SideNavBodyContent(props) {
           handelOnEdit={handleEdit}
           handelOnDelete={handleDelete}
           LiClickHandler={handleLiClick}
+          activeSafe={activeSafeId}
         />
         <ImageBtn src={PlusBtnImg} onClickHandler={openModal} />
         {modalShow && (
