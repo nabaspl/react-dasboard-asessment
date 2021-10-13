@@ -3,6 +3,7 @@ import IconInput from "../../../../components/iconInput/iconInput";
 import searchIcon from "../../../../assets/images/searchIcon.svg";
 import PlusBtnImg from "../../../../assets/images/plusBtnImage.svg";
 import computerImage from "../../../../assets/images/computerImage.svg";
+import notFound from "../../../../assets/images/404.svg";
 import { ImageBtn } from "../../../../components/form/button/button";
 import safeIcon from "../../../../assets/images/safeIcon.svg";
 import ItemsList from "../../../../components/itemLists/ItemLists";
@@ -105,6 +106,15 @@ export function SideNavBodyContent(props) {
           </Modal>
         )}
       </div>
+    );
+    else if(filter && !items.length)
+    return(
+      <div className="sidebar-body-wrapper">
+      <div className="list-empty-div">
+        <img src={notFound} />
+        <span>No safe Found!</span>
+      </div>
+    </div>
     );
   else
     return (
