@@ -97,7 +97,7 @@ export function SideNavBodyContent(props) {
         />
         <ImageBtn src={PlusBtnImg} onClickHandler={openModal} />
         {modalShow && (
-          <Modal>
+          <Modal CloseModal={handleCloseModal}>
             <SafeForm
               handleOnSubmit={handleSubmit}
               CurrentValue={curretFormData}
@@ -125,7 +125,7 @@ export function SideNavBodyContent(props) {
         </div>
         <ImageBtn src={PlusBtnImg} onClickHandler={openModal} />
         {modalShow && (
-          <Modal>
+          <Modal CloseModal={handleCloseModal}>
             <SafeForm
               handleOnSubmit={handleSubmit}
               CurrentValue={curretFormData}

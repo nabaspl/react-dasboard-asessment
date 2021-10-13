@@ -12,6 +12,7 @@ class Modal extends Component {
     // We create an element div for this modal
     this.element = document.createElement("div");
     this.element.classList.add('modal');
+    ///this.element.onclick=this.props.CloseModal;
     this.element.id="myModal";
   }
   // We append the created div to the div#modal
