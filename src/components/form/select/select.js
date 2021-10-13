@@ -9,7 +9,7 @@ const Select = (props) => (
                 value={props.value}
                 onChange={props.onChange} 
                 className={props.classLists}
-                className={props.error && 'error'}>
+                className={`${props.error!=undefined && 'error'}`}>
                     {props.options.map((item,i) => (
                             <option key={i} value={item.value}>{item.text}</option>
                     ))}

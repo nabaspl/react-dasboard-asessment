@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import MainWrapper from '../../components/main/wrapper/mainWrapper';
 import SideNav from '../../components/sideNav/sideNav';
 import MainContents from '../../components/mainContent/mainContent';
@@ -7,6 +7,7 @@ import SideNavBody from '../../components/sideNavBody/sideNavBody';
 import './style.css';
 import {SideNavTopContent,SideNavBodyContent} from './components/sideNavContents/sideNavContent'
 import {MainContentHead,MainContentBody} from './components/mainContent/mainContent'
+
 
 import { useSelector } from "react-redux";
 function Safe(){

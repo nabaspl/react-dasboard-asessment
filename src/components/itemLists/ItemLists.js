@@ -5,7 +5,7 @@ import iconEdit from '../../assets/images/icon_edit_active.svg'
 import icon_folder from '../../assets/images/icon_folder.svg'
 
 export default function ItemsList(props){
-    const [selected, setSelected] = useState(0);
+    const [selected, setSelected] = useState(props.activeSafe);
     const handleEdit = id => {
         props.handelOnEdit(id);
       };    

@@ -7,11 +7,11 @@ const TextArea = (props) => (
       {props.label && <label className="label" htmlFor="input-field">{props.label}</label>}
       <textarea name={props.name}
                  id={props.id} 
-                 onChange={props.onChange} 
-                 className={props.classLists}
+                 onChange={props.onChange}
+                 placeholder={props.placeHolder}
                  rows={props.rows}
                  value={props.value}
-                 className={props.error && 'error'}
+                 className={`${props.error!=undefined && 'error'}`}
                  required>
        </textarea>
        {props.error && <span className="error">{props.error}</span>}

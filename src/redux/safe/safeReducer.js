@@ -4,7 +4,7 @@ let lastsecretId = 0;
 let initialState = {
   safes: [],
   editSafes: false,
-  activeSafe: 0,
+  activeSafe: 1,
   filter: "",
 };
 export default function SafeReducer(state = initialState, action) {
@@ -48,6 +48,7 @@ export default function SafeReducer(state = initialState, action) {
           (safe, index) => safe.safeId !== action.payload
         ),
       };
+
       break;
 
     case actions.SAFE_EDIT:

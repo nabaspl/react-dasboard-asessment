@@ -1,8 +1,9 @@
 select {
     background-color: #fff;
     width: 100%;
-    height: 2rem;
+    height: 3.125rem;
     color: black;
+    padding: 0.938rem;
 }
 .form-group {
     display: flex;
