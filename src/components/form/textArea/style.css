@@ -1,6 +1,7 @@
 textarea {
     background-color: #fff;
     color: black;
+    padding: 0.938rem;
 }
 .form-group > p.info {
     font-family: Helvetica;

@@ -33,6 +33,13 @@ export default function SafeForm(props){
         ...values,
         [name]: value,
         });
+        if(error[name])
+         if(validateForm(name, value))
+            setError({
+                ...error,
+                [name]: false
+                });
+
         
     };
     const validateForm = (name,value) =>{
@@ -140,7 +147,7 @@ return <form onSubmit={handleSubmit}>
         <Select id="safeType" name="safeType" options={options}  value={values.safeType||'personal'} onChange={handleInputChange} label="Type" error={error.safeType}/>
         
         <TextArea 
-        type="text" id="safeDescription" name="safeDescription" 
+        type="text" id="safeDescription" name="safeDescription" placeHolder="Type Description"
         value={values.safeDescription||''} rows="5" onChange={handleInputChange} 
         label="Description" info="Please add a minimum of 10 characters" error={error.safeDescription} />
         

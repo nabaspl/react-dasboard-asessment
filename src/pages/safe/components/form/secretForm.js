@@ -22,11 +22,13 @@ export default function SecretForm(props){
         ...values,
         [name]: value,
         });
+        if(/^([a-z0-9_]{2,})$/.test(values.secret))
+            setSecretError()
     };
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(/^([a-z0-9_]{3,})$/.test(values.secret)) // true
+        if(/^([a-z0-9_]{2,})$/.test(values.secret)) // true
             props.handleOnSubmit(values);
         else
             setSecretError("Please enter a minimum of 3 characters lowercase alphabets numbebr and underscores only");
@@ -40,7 +42,7 @@ return <form onSubmit={handleSubmit}>
         <Input type="hidden" name="safeId" id="safeId" value={values.safeId||0} onChange={handleInputChange}  />
         <Input type="text" id="secret" name="secret" value={values.secret||''} onChange={handleInputChange} error={secretError} label="Folder Name" placeHolder="enter foldername"/>
         <p className="info">Please enter a minimum of 3 characters lowercase alphabets numbebr and underscores only. </p>
-        <div className="button-group" style={{marginTop:"3.938rem"}}>
+        <div className="button-group" style={{marginTop:"2rem"}}>
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>
             <Button>+ Create</Button>
         </div>

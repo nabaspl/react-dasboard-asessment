@@ -21,7 +21,7 @@ export function MainContentBody(props) {
     setModalShow(false);
   };
   const handleClick = () => {
-    if(props.safe)
+    if(props.safe&&props.safe.safeName)
         openModal();
   };
   const handleSubmit = (data) => {
@@ -69,7 +69,7 @@ export function MainContentBody(props) {
 
 export function MainContentHead(props) {
 
-if(props.safe)
+if(props.safe&&props.safe.safeName)
   return (
     <div className="main-header">
     <img src={BannnerImg} />
