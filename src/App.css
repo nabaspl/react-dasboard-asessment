@@ -3,9 +3,10 @@
 	padding: 0;
 	border: 0;
 	box-sizing: border-box;
+}
+body{
 	color: white;
 }
-
 ol, ul {
 	list-style: none;
 }
