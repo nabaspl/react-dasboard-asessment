@@ -3,9 +3,9 @@ import './style.css';
 import iconDelete from '../../assets/images/icon_delete_inactive.svg'
 import iconEdit from '../../assets/images/icon_edit_active.svg'
 import icon_folder from '../../assets/images/icon_folder.svg'
-
+import { useSelector } from 'react-redux';
 export default function ItemsList(props){
-    const [selected, setSelected] = useState(props.activeSafe);
+    const activeSafeId = useSelector((state) => state.SafeReducer.activeSafe);
     const handleEdit = id => {
         props.handelOnEdit(id);
       };    
@@ -13,27 +13,27 @@ export default function ItemsList(props){
         props.handelOnDelete(id);
       }; 
       const liClicked  = id =>{
-        setSelected(id);
+        
         props.LiClickHandler(id);
       }
-      let active='';
+      
 return <div className="list-group">
      
       <ul id={props.id}  className="list-ul safe-lists">
                     {props.items.map((item,i) => (
-                            <li key={i} className={`${selected==item.safeId?'active':''}`} onClick={()=>liClicked(item.safeId)}>
+                            <li key={i} className={`${activeSafeId==item._id?'active':''}`} onClick={()=>liClicked(item._id)}>
                                 <div className="item-wrapper">
                                     <img src={props.itemIcon}/>
                                     <div className="about-item">
-                                        <span className="safe-name">{item.safeName}</span>
-                                        <span className="safe-last-updated-info">Last updated: 2 days ago • USER SAFE</span>
+                                        <span className="safe-name">{item.name}</span>
+                                        <span className="safe-last-updated-info">{item.date}</span>
                                     </div>
                                     <div className="actions">
-                                        <span className="action-icon-container">
-                                            <img src={iconEdit} onClick={()=>handleEdit(item.safeId)}/>
+                                        <span className="action-icon-container"  onClick={()=>handleEdit(item._id)}>
+                                            <img src={iconEdit}/>
                                         </span>
-                                        <span className="action-icon-container">
-                                            <img src={iconDelete} onClick={()=>handleDelete(item.safeId)}/>
+                                        <span className="action-icon-container"  onClick={()=>handleDelete(item._id)}>
+                                            <img src={iconDelete} />
                                         </span>                                       
                                     </div>
                                 </div>
@@ -53,16 +53,16 @@ return <div className="list-group">
       
       <ul id={props.id}  className="list-ul">
                     {props.items.map((item,i) => (
-                            <li key={i} className={`${props.isSelected}`}>
+                            <li key={i} className="">
                                 <div className="item-wrapper">
                                     <img src={icon_folder}/>
                                     <div className="about-item">
                                         <span className="safe-name">{item}</span>
                                     </div>
-                                    <div className="actions">
-                                        {/* <span className="action-icon-container">
-                                            <img src={iconDelete} onClick={()=>handleDelete(i)}/>
-                                        </span>                                        */}
+                                    <div className="actions-folder">
+                                        <span className="action-icon-container" onClick={()=>handleDelete(item)}>
+                                            <img src={iconDelete} />
+                                        </span>                                       
                                     </div>
                                 </div>
                             </li>

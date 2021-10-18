@@ -48,6 +48,9 @@ span.action-icon-container {
     justify-content: flex-end;
     display: none;
 }
+.actions-folder{
+justify-content: flex-end;
+}
 .active>.item-wrapper>.actions {
     display: flex;
 }
