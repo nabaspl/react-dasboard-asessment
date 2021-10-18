@@ -138,8 +138,11 @@ export default function SafeForm(props){
     const handleSubmit = e => {
         e.preventDefault();
         setIsLoadingForm(true);
-    if(processValidation())
-        props.handleOnSubmit(values);
+    if(processValidation()){
+            props.handleOnSubmit(values);
+            setIsLoadingForm(false);
+    }
+        
     else
        setIsLoadingForm(false);
       };
