@@ -51,7 +51,7 @@ export function FolderList(props){
       }; 
 return <div className="list-group">
       
-      <ul id={props.id}  className="list-ul">
+      <ul id={props.id}  className="list-ul folder-list">
                     {props.items.map((item,i) => (
                             <li key={i} className="">
                                 <div className="item-wrapper">
