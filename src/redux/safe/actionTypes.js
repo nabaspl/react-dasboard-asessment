@@ -5,3 +5,4 @@ export const CREATE_SECRET = "createSecret";
 export const SET_ACTIVE_SAFE = "setActiveSafe";
 export const FILTER_SAFE = "filterSafe";
 export const DELETE_SECRET = "deleteSecret";
+export const SET_SAFECOUNT = "setSafeCount";
