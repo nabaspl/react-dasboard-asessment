@@ -1,4 +1,4 @@
-import react ,{useState} from "react";
+import react ,{useState,useEffect} from "react";
 import Button from "../../../../components/form/button/button";
 import Input from "../../../../components/form/input/input";
 import Select from "../../../../components/form/select/select";
@@ -12,17 +12,20 @@ export default function SafeForm(props){
     
     
     let initialValues = {
-        safeId: props.CurrentValue.safeId,
-        safeName: props.CurrentValue.safeName,
-        ownerName: props.CurrentValue.ownerName,
-        safeType: props.CurrentValue.safeType,
-        safeDescription: props.CurrentValue.safeDescription
+        safeId: props.CurrentValue._id,
+        safeName: props.CurrentValue.name,
+        ownerName: props.CurrentValue.owner,
+        safeType: props.CurrentValue.type,
+        safeDescription: props.CurrentValue.description
       };
 
-    const [values, setValues] = useState(props.CurrentValue);
+    const [values, setValues] = useState(Object.keys(props.CurrentValue).length !=0?props.CurrentValue:{"type":"personal"});
     const [error, setError] = useState({});
-      
-    const options = [{value:'personal', text:'Personal' },{value:'public', text:'Public' }];
+    const [isLoadingForm, setIsLoadingForm] = useState(false);
+   
+    
+
+    const options = [{value:'', text:'Please select' },{value:'personal', text:'Personal' },{value:'public', text:'Public' }];
     
     const editIndex = useSelector((state) => state.SafeReducer.editSafes)
     const safes = useSelector((state) => state.SafeReducer.safes);
@@ -45,18 +48,11 @@ export default function SafeForm(props){
     const validateForm = (name,value) =>{
 
         
-            if("safeName" == name){
+            if("name" == name){
                 if(!value){
                     setError({
                         ...error,
                         [name]: "safe name is required",
-                        isError:true
-                        });
-                    return false;
-                }else if(!editIndex && safes.filter((safe, index) => safe.safeName == value).length){
-                    setError({
-                        ...error,
-                        [name]: "safe name is already exist",
                         isError:true
                         });
                     return false;
@@ -69,7 +65,24 @@ export default function SafeForm(props){
                     return true;
                 }
             }
-            if("ownerName"==name){
+            if("type" == name){
+                if(!value){
+                    setError({
+                        ...error,
+                        [name]: "type name is required",
+                        isError:true
+                        });
+                    return false;
+                }else{
+                    setError({
+                        ...error,
+                        [name]: false,
+                        isError:false
+                        });
+                    return true;
+                }
+            }
+            if("owner"==name){
                 if(!value){
                     setError({
                         ...error,
@@ -86,8 +99,8 @@ export default function SafeForm(props){
                         return true;
                 }
             }
-            if("safeDescription"==name){
-                if(value.length<9){
+            if("description"==name){
+                if(value.length<10){
                     setError({
                         ...error,
                         [name]: "safe Description minimum length 10",
@@ -98,7 +111,7 @@ export default function SafeForm(props){
                     setError({
                         ...error,
                         [name]: false,
-                        isError:true
+                        isError:false
                         });
                         return true;
                 }
@@ -124,14 +137,17 @@ export default function SafeForm(props){
 
     const handleSubmit = e => {
         e.preventDefault();
-        if(processValidation())
-            props.handleOnSubmit(values);
+        setIsLoadingForm(true);
+    if(processValidation())
+        props.handleOnSubmit(values);
+    else
+       setIsLoadingForm(false);
       };
 
       
 
 return <form onSubmit={handleSubmit}>
-        <Input type="hidden" name="safeId" id="safeId" value={values.safeId||0} onChange={handleInputChange}/>
+        <Input type="hidden" name="_id" id="_id" value={values._id||0} onChange={handleInputChange}/>
         <div className="form-header">
             <h1  className="h1">Create Safe</h1>
             <div className="safe-details-group">
@@ -140,20 +156,20 @@ return <form onSubmit={handleSubmit}>
             </div>
         </div>
         
-        <Input type="text" id="safeName" name="safeName" value={values.safeName||''} onChange={handleInputChange} label="Safe Name" error={error.safeName} placeHolder="Safe Name"/>
+        <Input type="text" id="name" name="name" value={values.name||''} onChange={handleInputChange} label="Safe Name" error={error.name} placeHolder="Safe Name"/>
         
-        <Input type="text" id="ownerName" name="ownerName" value={values.ownerName||''} onChange={handleInputChange} label="Owner Name" error={error.ownerName} placeHolder="Owner Name"/>
+        <Input type="text" id="owner" name="owner" value={values.owner||''} onChange={handleInputChange} label="Owner Name" error={error.owner} placeHolder="Owner Name"/>
         
-        <Select id="safeType" name="safeType" options={options}  value={values.safeType||'personal'} onChange={handleInputChange} label="Type" error={error.safeType}/>
+        <Select id="type" name="type" options={options}  value={values.type||''} onChange={handleInputChange} label="Type" error={error.type}/>
         
         <TextArea 
-        type="text" id="safeDescription" name="safeDescription" placeHolder="Type Description"
-        value={values.safeDescription||''} rows="5" onChange={handleInputChange} 
-        label="Description" info="Please add a minimum of 10 characters" error={error.safeDescription} />
+        type="text" id="description" name="description" placeHolder="Type Description"
+        value={values.description||''} rows="5" onChange={handleInputChange} 
+        label="Description" info="Please add a minimum of 10 characters" error={error.description} />
         
         <div className="button-group">
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>
-            {editIndex?<Button>+ Update</Button>:<Button>+ Create</Button>}
+            {values._id?<Button loadingStatus={isLoadingForm}>+ Update</Button>:<Button loadingStatus={isLoadingForm}>+ Create</Button>}
         </div>
 
     </form>;

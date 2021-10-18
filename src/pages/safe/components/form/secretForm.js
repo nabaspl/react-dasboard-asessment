@@ -13,7 +13,8 @@ export default function SecretForm(props){
 
     const [values, setValues] = useState(initialValues);
     const [secretError, setSecretError] = useState();
-      
+    const [isLoadingForm, setIsLoadingForm] = useState(false);
+
     
 
     const handleInputChange = (e) => {
@@ -28,11 +29,13 @@ export default function SecretForm(props){
 
     const handleSubmit = e => {
         e.preventDefault();
+        setIsLoadingForm(true);
         if(/^([a-z0-9_]{2,})$/.test(values.secret)) // true
             props.handleOnSubmit(values);
-        else
+        else{
+            setIsLoadingForm(false);
             setSecretError("Please enter a minimum of 3 characters lowercase alphabets numbebr and underscores only");
-
+        }
       };
 
       
@@ -44,7 +47,7 @@ return <form onSubmit={handleSubmit}>
         <p className="info">Please enter a minimum of 3 characters lowercase alphabets numbebr and underscores only. </p>
         <div className="button-group" style={{marginTop:"2rem"}}>
             <span className="cancel-btn" onClick={props.CloseModal}>Cancel</span>
-            <Button>+ Create</Button>
+            <Button loadingStatus={isLoadingForm}>+ Create</Button>
         </div>
 
     </form>;

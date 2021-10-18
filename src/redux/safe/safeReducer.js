@@ -4,8 +4,9 @@ let lastsecretId = 0;
 let initialState = {
   safes: [],
   editSafes: false,
-  activeSafe: 1,
+  activeSafe: false,
   filter: "",
+  safeCount:0
 };
 export default function SafeReducer(state = initialState, action) {
   switch (action.type) {
@@ -55,7 +56,7 @@ export default function SafeReducer(state = initialState, action) {
       if (action.payload)
         return {
           ...state,
-          editSafes: true,
+          editSafes: action.payload,
           editSafeData: state.safes.filter(
             (safe, index) => safe.safeId === action.payload
           ),
@@ -104,6 +105,11 @@ export default function SafeReducer(state = initialState, action) {
             safes: updatedSafed,
           };
       break;
+    case actions.SET_SAFECOUNT:
+      return{
+        ...state,
+        safeCount:action.payload
+      }
 
     default:
       return state;
