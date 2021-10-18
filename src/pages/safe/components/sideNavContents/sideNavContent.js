@@ -97,8 +97,11 @@ export function SideNavBodyContent(props) {
           setModalShow(false);
           reLoad();
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(function (error) {
+          if (error.response) {
+            if (error.response.data.message.code == 11000)
+              alert("safe name already exist");
+          }
         });
     else {
         safeApi
