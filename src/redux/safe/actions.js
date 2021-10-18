@@ -45,3 +45,9 @@ export function deleteSecret(data){
         payload:data
     }
 }
+export function setSafeCount(count){
+    return{
+        type:actions.SET_SAFECOUNT,
+        payload:count
+    }
+}

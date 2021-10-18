@@ -12,11 +12,12 @@ import Modal from "../../../../components/modal/modal";
 import SafeForm from "../form/safeForm";
 
 import store from "../../../../redux/store";
-import { safeCreate, safeEdit,safeDeleted,setActiveSafe,filterSafe} from "../../../../redux/safe/actions";
+import { safeCreate, safeEdit,safeDeleted,setActiveSafe,filterSafe, setSafeCount} from "../../../../redux/safe/actions";
 import { useSelector } from "react-redux";
 
 import { debounce } from 'lodash';
 
+import safeApi from '../../../../apis/safe'
 
 
 import "./style.css";
@@ -27,15 +28,12 @@ export function SideNavTopContent(props) {
   }
 
   const delayedHandleChange = debounce(eventData => store.dispatch(filterSafe(eventData)), 500);
-
-
-
-    let items = useSelector((state) => state.SafeReducer.safes);
+  const safeCount = useSelector((state) => state.SafeReducer.safeCount);
   return (
     <div className="sidebar-top-wrapper">
       <ul className="safe-types">
         <li>
-          All Safe <span className="safe-count">({items.length})</span>
+          All Safe <span className="safe-count">({safeCount})</span>
         </li>
       </ul>
       <IconInput icon={searchIcon} onChange={onChangeHandler} placeHolder="search"/>
@@ -46,8 +44,29 @@ export function SideNavBodyContent(props) {
   const [modalShow, setModalShow] = useState(false);
   const activeSafeId = useSelector((state) => state.SafeReducer.activeSafe);
 
+  const [_safes,setSafes_] = useState([]);
+  const [isLoaded,setIsLoaded] = useState(false);
+  useEffect(() => {
+    safeApi.get()
+    .then(res => {
+        setSafes_(res.data)
+        store.dispatch(setSafeCount(res.data.length));
+        setIsLoaded(true);
+        if(res.data.length&&res.data[0]._id)
+          store.dispatch(setActiveSafe(res.data[0]._id))
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+  },[isLoaded]);
+
+  const reLoad=()=>{
+      setIsLoaded(false);
+  }
+
   
   const openModal = () => {
+    setCurretFormData({});
     setModalShow(true);
   };
   const handleCloseModal = () => {
@@ -55,37 +74,73 @@ export function SideNavBodyContent(props) {
   };
 
   const handleSubmit = (data) => {
-    store.dispatch(safeCreate(data));
-    store.dispatch(safeEdit(0));
-    
-    setModalShow(false);
-  };
+    //store.dispatch(safeCreate(data));
+    //store.dispatch(safeEdit(0));
 
+    if(data._id)
+    safeApi.patch(`/${data._id}`,data)
+    .then((res) => {
+        console.log(res.data)
+        setModalShow(false);
+        reLoad();
+    }).catch((error) => {
+        console.log(error)
+    });
+    else
+    safeApi.post('',data)
+    .then((res) => {
+        console.log(res.data)
+        setModalShow(false);
+        reLoad();
+    }).catch((error) => {
+        console.log(error)
+    });
+
+  };
+  const[curretFormData,setCurretFormData] = useState({});
   const handleEdit = (safeId) => {
-    store.dispatch(safeEdit(safeId));
+    // store.dispatch(safeEdit(safeId));
+
+    safeApi.get(`/${safeId}`).then(res => {
+                                            setCurretFormData(res.data[0])
+
+                                            setModalShow(true);
+                                        })
+                                          .catch(function (error) {
+                                              console.log(error);
+                                        })
     
-    setModalShow(true);
+    
   };
   const handleDelete = (safeId) => {
     
-    store.dispatch(safeDeleted(safeId));
+    //store.dispatch(safeDeleted(safeId));
+    
+    safeApi.delete(`/${safeId}`).then(res => {
+      store.dispatch(setActiveSafe(0));
+      reLoad();
+  })
+    .catch(function (error) {
+        console.log(error);
+  })
     
   };
   const handleLiClick = (safeId) => {
     store.dispatch(setActiveSafe(safeId));
   };
   
-  let curretFormData = {};
-  let items = useSelector((state) => state.SafeReducer.safes);
+  
+  let items = _safes;
   let filter = useSelector((state) => state.SafeReducer.filter);
 
   if(filter)
-    items = items.filter((item, index) => item.safeName.toUpperCase().indexOf(filter.toUpperCase()) > -1);
+    items = items.filter((item, index) => item.name.toUpperCase().indexOf(filter.toUpperCase()) > -1);
 
   const editIndex = useSelector((state) => state.SafeReducer.editSafes);
-  const editSafeData = useSelector((state) => state.SafeReducer.editSafeData);
-  if (editIndex) curretFormData = editSafeData[0];
-
+  //const editSafeData = useSelector((state) => state.SafeReducer.editSafeData);
+  //if (editIndex) 
+  if(!isLoaded)
+       return <div className="loadig-container">Loading<div className="loader"></div></div>
   if (items && items.length)
     return (
       <div className="sidebar-body-wrapper with-list">

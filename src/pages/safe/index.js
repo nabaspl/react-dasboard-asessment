@@ -19,12 +19,11 @@ function Safe(){
         safe=currentSafe.length?currentSafe[0]:[];
         secrets =safe?safe.secrets:[];
     }
-    
-        
-        return  <MainWrapper>
+       
+            return  <MainWrapper>
                     <SideNav>
                         <SideNavTop>
-                            <SideNavTopContent safesCount={safes.lenght}/>
+                            <SideNavTopContent safesCount={0}/>
                         </SideNavTop>
                             
                         <SideNavBody>
