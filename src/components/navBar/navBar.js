@@ -3,7 +3,6 @@ import './style.css'
 import {Link, useLocation } from "react-router-dom";
 export default function NavBar(props){
     const location = useLocation();
-    console.log(location.pathname);
     return <ul className="nav-menu">
                 {props.menuItems.map((menu,i)=> (
                      <li key={i} className={location.pathname == menu.route ?"active":""}>

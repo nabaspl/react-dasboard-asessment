@@ -24,7 +24,6 @@ export function MainContentBody(props) {
     if(activeSafeId)
     safeApi.get(`get-secrets/${activeSafeId}`)
     .then(res => {
-      console.log(res,"secrets");
         setSafes_(res.data);
         setSecrets_(res.data.secrets)
         setIsLoaded(true);
@@ -41,7 +40,6 @@ export function MainContentBody(props) {
   },[activeSafeId,isLoaded]);
 
 
-  console.log("_secrets",_secrets);
 
   const openModal = () => {
     setModalShow(true);
@@ -50,7 +48,6 @@ export function MainContentBody(props) {
     setModalShow(false);
   };
   const handleClick = () => {
-    console.log("sssafe",_safes)
     if(Object.keys(_safes).length !=0 )
        openModal();
   };
@@ -142,7 +139,6 @@ export function MainContentHead(props) {
     if(activeSafeId)
     safeApi.get(`get-secrets/${activeSafeId}`)
     .then(res => {
-      console.log(res,"secrets");
         setSafeName(res.data.name);
         setSafeOwner(res.data.owner);
         setSafeDescription(res.data.description);
