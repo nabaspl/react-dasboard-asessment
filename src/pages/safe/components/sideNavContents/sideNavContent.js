@@ -91,8 +91,8 @@ export function SideNavBodyContent(props) {
         setModalShow(false);
         reLoad();
     }).catch((error) => {
-        if(error.message.code==11000)
-        console.log("safe name:"+error.message.keyValue.name + "alredy exist")
+        if(error.message.code == 11000)
+          alert("safe name:"+error.message.keyValue.name + "alredy exist");
     });
 
   };
