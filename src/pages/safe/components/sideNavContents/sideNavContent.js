@@ -80,7 +80,6 @@ export function SideNavBodyContent(props) {
     if(data._id)
     safeApi.patch(`/${data._id}`,data)
     .then((res) => {
-        console.log(res.data)
         setModalShow(false);
         reLoad();
     }).catch((error) => {
@@ -89,7 +88,6 @@ export function SideNavBodyContent(props) {
     else
     safeApi.post('',data)
     .then((res) => {
-        console.log(res.data)
         setModalShow(false);
         reLoad();
     }).catch((error) => {

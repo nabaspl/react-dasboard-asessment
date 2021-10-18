@@ -13,7 +13,7 @@ const Input = (props) => (
        value={props.value}
        onChange={props.onChange} 
        placeholder={props.placeHolder}
-       className={`form-input ${props.error!=undefined && 'error'}`}
+       className={`form-input ${props.error && 'error'}`}
        required />
        {props.error && <span className="error">{props.error}</span>}
     </div>

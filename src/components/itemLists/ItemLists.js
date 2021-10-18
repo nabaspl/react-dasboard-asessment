@@ -23,7 +23,7 @@ return <div className="list-group">
                     {props.items.map((item,i) => (
                             <li key={i} className={`${activeSafeId==item._id?'active':''}`} onClick={()=>liClicked(item._id)}>
                                 <div className="item-wrapper">
-                                    <img src={props.itemIcon}/>
+                                    <img className="safe-icon-img" src={props.itemIcon}/>
                                     <div className="about-item">
                                         <span className="safe-name">{item.name}</span>
                                         <span className="safe-last-updated-info">{item.date}</span>
