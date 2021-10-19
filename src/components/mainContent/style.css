@@ -1,5 +1,5 @@
 .main-contents{
-    background-image: linear-gradient(to bottom, #151820, #2c3040);
+    background-color: #151820;
     display: grid;
     grid-template-rows: .5fr 2fr;
 }
