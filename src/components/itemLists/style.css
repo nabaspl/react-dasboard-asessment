@@ -32,6 +32,7 @@ span.safe-name {
 span.safe-last-updated-info {
     font-family: Roboto;
     font-size: 0.813rem;
+    color: #5e627c;
 }
 span.action-icon-container {
     padding: 0.8rem;
