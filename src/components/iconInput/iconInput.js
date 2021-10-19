@@ -1,8 +1,7 @@
-import react from "react";
 import './style.css';
 const IconInput = (props) => (
     <div className="input-group">
-      {props.icon && <img className="input-icon" src={props.icon}/>}
+      {props.icon && <img className="input-icon" src={props.icon} alt="search"/>}
       <input
        type={props.type}
        name={props.name} 

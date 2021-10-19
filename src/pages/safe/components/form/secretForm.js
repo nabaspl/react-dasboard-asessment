@@ -30,7 +30,7 @@ export default function SecretForm(props){
     const handleSubmit = e => {
         e.preventDefault();
         setIsLoadingForm(true);
-        if(/^([a-z0-9_]{2,})$/.test(values.secret)) // true
+        if(/^([a-z0-9_]{3,})$/.test(values.secret)) // true
             props.handleOnSubmit(values);
         else{
             setIsLoadingForm(false);
