@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MainWrapper from '../../components/main/wrapper/mainWrapper';
 import SideNav from '../../components/sideNav/sideNav';
 import MainContents from '../../components/mainContent/mainContent';
