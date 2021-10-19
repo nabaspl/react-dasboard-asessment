@@ -21,7 +21,8 @@ label.label {
     padding: 0.5rem 0;
 }
 span.error {
-    color: red;
+    color: rgb(255 0 0 / 60%);
+    font-size: .8rem;
 }
 select.error{
     border: 3px solid #f44336;
