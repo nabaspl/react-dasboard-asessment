@@ -34,8 +34,10 @@ span.safe-last-updated-info {
     font-size: 0.813rem;
 }
 span.action-icon-container {
-    padding: .8rem;
+    padding: 0.8rem;
     border-radius: 50%;
+    align-items: center;
+    display: flex;
 }
 .action-icon-container:hover {
     background: rgba(90, 99, 122, 0.2);
