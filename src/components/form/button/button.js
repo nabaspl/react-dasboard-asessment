@@ -14,7 +14,8 @@ return <button  type={props.type}
 
 export function ImageBtn(props){
     return <img src={props.src} 
-                id={props.id} 
+                id={props.id}
+                alt="+"
                 onClick={props.onClickHandler} 
                 className='img-button'/>;
 }

@@ -1,4 +1,4 @@
-import react,{useState} from 'react';
+
 import './style.css';
 import iconDelete from '../../assets/images/icon_delete_inactive.svg'
 import iconEdit from '../../assets/images/icon_edit_active.svg'
@@ -21,19 +21,19 @@ return <div className="list-group">
      
       <ul id={props.id}  className="list-ul safe-lists">
                     {props.items.map((item,i) => (
-                            <li key={i} className={`${activeSafeId==item._id?'active':''}`} onClick={()=>liClicked(item._id)}>
+                            <li key={i} className={`${activeSafeId===item._id?'active':''}`} onClick={()=>liClicked(item._id)}>
                                 <div className="item-wrapper">
-                                    <img className="safe-icon-img" src={props.itemIcon}/>
+                                    <img className="safe-icon-img" src={props.itemIcon} alt="safe icon"/>
                                     <div className="about-item">
                                         <span className="safe-name">{item.name}</span>
                                         <span className="safe-last-updated-info">{item.date}</span>
                                     </div>
                                     <div className="actions">
                                         <span className="action-icon-container"  onClick={()=>handleEdit(item._id)}>
-                                            <img src={iconEdit}/>
+                                            <img src={iconEdit} alt="edit"/>
                                         </span>
                                         <span className="action-icon-container"  onClick={()=>handleDelete(item._id)}>
-                                            <img src={iconDelete} />
+                                            <img src={iconDelete} alt="delete"/>
                                         </span>                                       
                                     </div>
                                 </div>
@@ -55,13 +55,13 @@ return <div className="list-group">
                     {props.items.map((item,i) => (
                             <li key={i} className="">
                                 <div className="item-wrapper">
-                                    <img src={icon_folder}/>
+                                    <img src={icon_folder} alt="folder-iocn"/>
                                     <div className="about-item">
                                         <span className="safe-name">{item}</span>
                                     </div>
                                     <div className="actions-folder">
                                         <span className="action-icon-container" onClick={()=>handleDelete(item)}>
-                                            <img src={iconDelete} />
+                                            <img src={iconDelete} alt="delete" />
                                         </span>                                       
                                     </div>
                                 </div>
