@@ -2,6 +2,8 @@ ul.nav-menu >li {
     display: flex;
     cursor: pointer;
     font-size: 0.813rem;
+    min-width: 9.188rem;
+    justify-content: center;
     font-family: Helvetica;
 }
 ul.nav-menu >li:hover {
@@ -14,4 +16,7 @@ ul.nav-menu>li>a {
 }
 ul.nav-menu >li.active {
     background-image: linear-gradient(0deg, rgb(114, 19, 75), rgb(29, 33, 44));;
+}
+.float-right>ul>li {
+    min-width: auto;
 }
