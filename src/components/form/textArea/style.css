@@ -2,6 +2,7 @@ textarea {
     background-color: #fff;
     color: black;
     padding: 0.938rem;
+    resize: none;
 }
 .form-group > p.info {
     font-family: Helvetica;
