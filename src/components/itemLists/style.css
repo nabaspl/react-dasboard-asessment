@@ -50,6 +50,7 @@ span.action-icon-container {
 }
 .actions-folder{
 justify-content: flex-end;
+justify-self: flex-end;
 }
 .active>.item-wrapper>.actions {
     display: flex;
