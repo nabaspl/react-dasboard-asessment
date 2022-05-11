@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://t-vault-api.herokuapp.com/safe";
+const baseURL = process.env.PUBLIC_URL;
 const client = axios.create({
     baseURL: baseURL
   });
