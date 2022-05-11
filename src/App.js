@@ -15,8 +15,8 @@ import {
   Redirect,
 } from "react-router-dom";
 import { menus } from "./menus";
-const secretKey = "***REMOVED***";
-const secretKey2 = "***REMOVED***";
+const secretKey = process.env.secretKey;
+const secretKey2 = process.env.secretKey1;
 function App() {
   return (
     <Router>
