@@ -15,7 +15,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import { menus } from "./menus";
-
+const secretKey = "asdfghjklzxcvbnmqwertyuiop";
 function App() {
   return (
     <Router>
@@ -29,7 +29,7 @@ function App() {
               return <Redirect to="/safe" />;
             }}
           />
-          <Route path="/safe"  component={Safe} />
+          <Route path="/safe" component={Safe} />
           <Route path="/vault" component={Vault} />
           <Route path="/service" component={ServiceAccount} />
           <Route path="/iam" component={IamService} />
