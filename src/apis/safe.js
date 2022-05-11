@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "***REMOVED***";
+const baseURL = process.env.PUBLIC_URL;
 const client = axios.create({
     baseURL: baseURL
   });
