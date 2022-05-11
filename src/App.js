@@ -18,6 +18,7 @@ import { menus } from "./menus";
 const secretKey = process.env.secretKey;
 const secretKey2 = process.env.secretKey1;
 const sec = process.env.secretKey2;
+const newSec = "***REMOVED***";
 function App() {
   return (
     <Router>
